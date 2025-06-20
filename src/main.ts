@@ -10,6 +10,10 @@ async function bootstrap() {
   const origin = configService.get<string>('ORIGIN_ALLOW');
   app.use(cors({ origin, credentials: true }));
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
+  const port = configService.get<number>('PORT') || 3000;
+
+  await app.listen(port, () => {
+    console.log(`App listening on port ${port}`);
+  });
 }
 bootstrap();
