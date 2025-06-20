@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ContactsModule } from './contacts/contacts.module';
+import { PingController } from './ping/ping.controller';
 
 @Module({
   imports: [
@@ -16,5 +17,6 @@ import { ContactsModule } from './contacts/contacts.module';
 
     ContactsModule,
   ],
+  controllers: [PingController],
 })
 export class AppModule {}
